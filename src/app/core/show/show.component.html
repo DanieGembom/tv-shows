@@ -1,6 +1,6 @@
 <div>
     <section *ngIf="show">
-        <h1>{{show.name}}{{id}}</h1>
+        <h1>{{show.name}}</h1>
         <img [src]=[show.image.medium]>
         <br>
         <span>Status: {{show.status}}.</span>
@@ -14,7 +14,9 @@
         <br>
         <span>Language: {{show.language}}.</span>
         <br>
-        <span>Genres: {{show.genres}}</span>
+        <span>Genres: {{show.genres}}.</span>
+        <br>
+        <span>Rating: {{show.rating.average}}</span>
         <br>
         <section class="summary">
             <span>Summary: </span>
