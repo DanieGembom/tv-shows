@@ -1,0 +1,46 @@
+<div>
+    <section *ngIf="show">
+        <h1>{{show.name}}{{id}}</h1>
+        <img [src]=[show.image.medium]>
+        <br>
+        <span>Status: {{show.status}}.</span>
+        <br>
+        <span>Schedule: {{show.schedule.days}}, {{show.schedule.time}}.</span>
+        <br>
+        <a target="_" href="{{show.officialSite}}">Official site link</a>.
+        <br>
+        <span>For IMDB </span>
+        <a target="_" href="https://www.imdb.com/title/{{show.externals.imdb}}">click here</a>.
+        <br>
+        <span>Language: {{show.language}}.</span>
+        <br>
+        <span>Genres: {{show.genres}}</span>
+        <br>
+        <section class="summary">
+            <span>Summary: </span>
+            <span [innerHTML]=[show.summary]></span>
+        </section>
+    </section>
+    <button (click)="backToTable()">Back to table</button>
+    <button (click)="toggleCast()">{{showCastFlag ? "Hide cast" : "Show cast"}}</button>
+    <section *ngIf="showCastFlag" class="cast">
+        <h2>cast</h2>
+        <br>
+        <table *ngIf="cast" border="1">
+            <tr>
+                <th>Name</th>
+                <th>Character</th>
+                <th>Country</th>
+                <th>Picture</th>
+            </tr>
+            <tr *ngFor="let actor of cast">
+                <td>{{actor.person.name}}</td>
+                <td>{{actor.character.name}}</td>
+                <td>{{actor.person.country?.name}}</td>
+                <td>
+                    <img src="{{actor.person.image?.medium}}">
+                </td>
+            </tr>
+        </table>
+    </section>
+</div>

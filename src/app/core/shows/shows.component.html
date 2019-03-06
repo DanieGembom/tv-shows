@@ -1,0 +1,30 @@
+<div>
+    <span>Search: </span>
+    <input type="text" autofocus="true" [(ngModel)]="searchText">
+    <br>
+    <span>Please click on your favorite TV show for more details.</span>
+    <br>
+    <span>You can also type some text in the box above to filter the table!</span>
+    <br>
+    <span>{{searchText}}</span>
+    <br>
+    <table border="1" *ngIf="shows; else loading_table">
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Schedule</th>
+            <th>Picture</th>
+        </tr>
+        <tr *ngFor="let show of showsBySearch; let showIndex = index" (click)="showDetails(showIndex)">
+            <td>
+                {{show.name}}
+            </td>
+            <td>{{show.status}}</td>
+            <td>{{show.schedule.days}}, {{show.schedule.time}}</td>
+            <td>
+                <img src="{{show.image.medium}}">
+            </td>
+        </tr>
+    </table>
+    <ng-template #loading_table>Loading table...</ng-template>
+</div>

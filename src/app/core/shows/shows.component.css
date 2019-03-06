@@ -1,0 +1,7 @@
+th {
+    text-align: center;
+}
+
+tr:not(:first-of-type):hover {
+    background-color: aqua;
+}
